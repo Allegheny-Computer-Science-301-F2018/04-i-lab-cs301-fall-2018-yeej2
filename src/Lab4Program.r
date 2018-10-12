@@ -60,6 +60,13 @@ ggplot(data = measles) + geom_histogram(mapping = aes(x = state, y = year)) + ge
 > autrate <- aut %>% mutate(rate = (Count/Population))
 > View(autrate)
 
+dat <- us_contagious_diseases %>% 
+  mutate(rate = (count*100000)/population * (weeks_reporting/52))
 
+ggplot(measlescal, aes(year, rate)) + geom_line() 
++ geom_vline(mapping = aes(), color = "green", 
+             data = NULL, xintercept = 1965)
++ggplot(aut, aes(year, rate))
+#Using this code you can see the different rates at which the two variables grow to fulfill this inquiry. The rate of Autism did increase however I am missing the data set from 1965 so I cannot conclude if the increase started from there, however it does seem to coincide by the rate increasing as more people get vaccinated. This however could just be due to the rising population.
 
 
